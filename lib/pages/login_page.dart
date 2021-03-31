@@ -48,8 +48,8 @@ class _LoginPageState extends State<LoginPage> {
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.green),
                       ),
-                      hintText: "Enter Username",
-                      labelText: "Username",
+                      hintText: "Enter E-Mail ID",
+                      labelText: "E-Mail ID",
                     ),
                     onChanged: (value) {
                       name = value;
@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                       Navigator.pushNamed(context, MyRoutes.homeRoute);
                     },
-                    child: Text(
+                    child: Text(  
                       "Sign In",
                       style: TextStyle(
                         color: Colors.white,
@@ -106,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                           vertical: 10.0, horizontal: 95.0),
                     ),
                     onPressed: () {
-                      print("Create Account");
+                      Navigator.pushNamed(context, MyRoutes.signupRoute);
                     },
                     child: Text(
                       "Create Account",
