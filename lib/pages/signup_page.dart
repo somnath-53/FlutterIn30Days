@@ -67,6 +67,12 @@ class _SignupPageState extends State<SignupPage> {
                             hintText: "Enter Full Name",
                             labelText: "Full Name",
                           ),
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return "Should not empty";
+                            }
+                            return null;
+                          },
                         ),
                         SizedBox(
                           height: 20.0,
@@ -103,6 +109,12 @@ class _SignupPageState extends State<SignupPage> {
                             labelText: "Mobile Number",
                           ),
                           keyboardType: TextInputType.number,
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return "Should not empty";
+                            }
+                            return null;
+                          },
                         ),
                         SizedBox(
                           height: 20.0,
