@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/utils/routes.dart';
-import 'package:form_field_validator/form_field_validator.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -23,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
       color: Colors.white,
       child: SingleChildScrollView(
         child: Form(
-          autovalidateMode: (AutovalidateMode.onUserInteraction),
+          // autovalidateMode: (AutovalidateMode.onUserInteraction),
           key: _formKey,
           child: Column(
             children: [
@@ -61,12 +60,19 @@ class _LoginPageState extends State<LoginPage> {
                         // focusedBorder: OutlineInputBorder(
                         //   borderSide: BorderSide(color: Colors.green),
                         // ),
-                        hintText: "Enter E-Mail ID",
+                        hintText: "abc@gmail.com",
                         labelText: "E-Mail ID",
                       ),
                       keyboardType: TextInputType.emailAddress,
-                      validator:
-                          EmailValidator(errorText: "Not a valid E-Mail"),
+                      validator: (value) {
+                        Pattern pattern =
+                            r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$';
+                        RegExp regex = RegExp(pattern);
+                        if (!regex.hasMatch(value)) {
+                          return "Invalid E-Mail ID";
+                        }
+                        return null;
+                      },
                       onChanged: (value) {
                         name = value;
                         setState(
@@ -87,14 +93,15 @@ class _LoginPageState extends State<LoginPage> {
                         // focusedBorder: OutlineInputBorder(
                         //   borderSide: BorderSide(color: Colors.green),
                         // ),
-                        hintText: "Enter Password",
+                        hintText: "Abc@1234",
                         labelText: "Password",
                       ),
                       validator: (value) {
-                        if (value.isEmpty) {
-                          return "Password can not be empty";
-                        } else if (value.length < 6) {
-                          return "Password lenth should be atleast 6";
+                        Pattern pattern =
+                            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+                        RegExp regex = RegExp(pattern);
+                        if (!regex.hasMatch(value)) {
+                          return "Must contain Uppercase, Special symbol and number";
                         }
                         return null;
                       },

@@ -23,15 +23,17 @@ class _SignupPageState extends State<SignupPage> {
       key: _formKey,
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: SingleChildScrollView(
-          child: SafeArea(
+        body: SafeArea(
+          child: SingleChildScrollView(
             child: Container(
               width: double.infinity,
               height: MediaQuery.of(context).size.height,
               child: Column(
                 children: <Widget>[
-                  SizedBox(
-                    height: 20.0,
+                  Image.asset(
+                    "assets/images/logo.png",
+                    height: 200.0,
+                    width: 200.0,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
