@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/utils/routes.dart';
-import 'package:form_field_validator/form_field_validator.dart';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -19,7 +18,7 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      autovalidateMode: (AutovalidateMode.always),
+      // autovalidateMode: (AutovalidateMode.always),
       key: _formKey,
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -90,8 +89,15 @@ class _SignupPageState extends State<SignupPage> {
                             labelText: "E-Mail ID",
                           ),
                           keyboardType: TextInputType.emailAddress,
-                          validator:
-                              EmailValidator(errorText: "Not a valid E-Mail"),
+                          validator: (value) {
+                        Pattern pattern =
+                            r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$';
+                        RegExp regex = RegExp(pattern);
+                        if (!regex.hasMatch(value)) {
+                          return "Invalid E-Mail ID";
+                        }
+                        return null;
+                      },
                         ),
                         SizedBox(
                           height: 20.0,
