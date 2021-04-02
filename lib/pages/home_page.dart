@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/models/catalog.dart';
 import 'package:flutter_application/widgets/drawer.dart';
+import 'package:flutter_application/widgets/items_widget.dart';
 
 class HomePage extends StatelessWidget {
   final int days = 30;
@@ -7,14 +9,19 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.white,
+      backgroundColor: Colors.cyan[200],
       appBar: AppBar(
         title: Text("Catalog App"),
       ),
-      body: Center(
-        child: Container(
-          child: Center(
-              child: Text("Welcome to flutter $days days challange by $name")),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.builder(
+          itemCount: CatalogModel.items.length,
+          itemBuilder: (context, index) {
+            return ItemWidget(
+              item: CatalogModel.items[index],
+            );
+          },
         ),
       ),
       drawer: MyDrawer(),
