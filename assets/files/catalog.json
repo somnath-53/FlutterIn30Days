@@ -8,7 +8,7 @@
             "storage": "8GB+128GB",
             "battery": "4500mAh",
             "camera": "16MP/48MP + 50MP + 8MP",
-            "price": "64999",
+            "price": 64999,
             "imageUrl": "https://i.gadgets360cdn.com/products/large/oneplus-9-pro-373x800-1616153187.jpg?downsize=*:420&output-quality=80"
         },
         {
@@ -30,7 +30,7 @@
             "storage": "12GB+128GB",
             "battery": "5000mAh",
             "camera": "40MP/108MP + 12MP + 10MP + 10MP",
-            "price": "105999",
+            "price": 105999,
             "imageUrl": "https://i.gadgets360cdn.com/products/large/samsung-galaxy-s21-ultra-374x800-1609135603.jpg?downsize=*:420&output-quality=80"
         },
         {
